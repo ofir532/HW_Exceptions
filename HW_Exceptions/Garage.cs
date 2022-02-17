@@ -9,8 +9,8 @@ namespace HW_Exceptions
 {
     internal class Garage : IGarage
     {
-        public Car[] cars;
-        public string[] carTypes;
+        private Car[] cars;
+        private string[] carTypes;
 
         public Garage(string[] carTypes)
         {
