@@ -20,14 +20,14 @@ namespace HW_Exceptions
 
         public void AddCar(Car car)
         {
-            if (cars.Length == cars.Count(x => x != null))
-                throw new TheGarageIsFull("The garage is full.");
             if (car == null || car.Brand == null)
                 throw new CarNullException("Missing car details.");
+            if (cars.Length == cars.Count(x => x != null))
+                throw new TheGarageIsFull("The garage is full.");
             if (Array.Exists(cars, x => x == car) == true)
                 throw new CarAlreadyHereException("Car already here.");
             if (car.TotalLost)
-                throw new WeDoNotFixTotalLostException("We don't repair total lost cars.");
+                throw new WeDoNotFixTotalLostException("We don't repair total lost car.");
             if (Array.Exists(carTypes, x => x == car.Brand) == false)
                 throw new WrongGarageException("We don't repair this type of car.");
             if (car.NeedsRepair == false)
@@ -35,7 +35,7 @@ namespace HW_Exceptions
             cars[Array.FindIndex(cars, x => x == null)] = car;
             //for (int i = 0; i < cars.Length; i++)
             //{
-            //    if(cars[i] == null)
+            //    if (cars[i] == null)
             //    {
             //        cars[i] = car;
             //        break;
@@ -72,7 +72,6 @@ namespace HW_Exceptions
             //        break;
             //    }
             //}
-
         }
     }
 }
